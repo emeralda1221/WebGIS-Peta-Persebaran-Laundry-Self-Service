@@ -61,7 +61,7 @@ const DATA = [
 ];
 
 /* ---------- STATE ---------- */
-let activeKacamatan = new Set();   // empty = show all
+let activeKecamatan = new Set();   // empty = show all
 let searchTerm = "";
 let selectedIdx = null;
 const markers = [];
@@ -120,7 +120,7 @@ kapList.forEach(k=>{
   c.className = 'chip';
   c.textContent = `${k} (${kapCounts[k]})`;
   c.onclick = ()=>{
-    if(activeKecamatan.has(k)) activeKacamatan.delete(k);
+    if(activeKecamatan.has(k)) activeKecamatan.delete(k);
     else activeKecamatan.add(k);
     render();
   };
