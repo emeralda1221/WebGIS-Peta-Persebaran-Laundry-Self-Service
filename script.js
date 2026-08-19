@@ -61,7 +61,7 @@ const DATA = [
 ];
 
 /* ---------- STATE ---------- */
-let activeKapanewon = new Set();   // empty = show all
+let activeKacamatan = new Set();   // empty = show all
 let searchTerm = "";
 let selectedIdx = null;
 const markers = [];
@@ -112,7 +112,7 @@ const chipsEl = document.getElementById('chips');
 const allChip = document.createElement('div');
 allChip.className = 'chip all active';
 allChip.textContent = `Semua (${DATA.length})`;
-allChip.onclick = ()=>{ activeKapanewon.clear(); render(); };
+allChip.onclick = ()=>{ activeKecamatan.clear(); render(); };
 chipsEl.appendChild(allChip);
 
 kapList.forEach(k=>{
@@ -120,8 +120,8 @@ kapList.forEach(k=>{
   c.className = 'chip';
   c.textContent = `${k} (${kapCounts[k]})`;
   c.onclick = ()=>{
-    if(activeKapanewon.has(k)) activeKapanewon.delete(k);
-    else activeKapanewon.add(k);
+    if(activeKecamatan.has(k)) activeKacamatan.delete(k);
+    else activeKecamatan.add(k);
     render();
   };
   c.dataset.k = k;
@@ -135,14 +135,14 @@ document.getElementById('search').addEventListener('input', e=>{
 
 /* ---------- STATS (computed once) ---------- */
 document.getElementById('statTotal').textContent = DATA.length;
-document.getElementById('statKapanewon').textContent = kapList.length;
+document.getElementById('statKecamatan').textContent = kapList.length;
 const rated = DATA.filter(d=>d.r);
 const avgR = (rated.reduce((s,d)=>s+d.r,0)/rated.length).toFixed(2);
 document.getElementById('statRating').textContent = avgR;
 
 /* ---------- FILTER + RENDER LIST ---------- */
 function matches(d){
-  const kOk = activeKapanewon.size===0 || activeKapanewon.has(d.k);
+  const kOk = activeKecamatan.size===0 || activeKecamatan.has(d.k);
   const sOk = !searchTerm || d.n.toLowerCase().includes(searchTerm) || d.a.toLowerCase().includes(searchTerm);
   return kOk && sOk;
 }
@@ -150,9 +150,9 @@ function matches(d){
 function render(){
   // chips visual state
   document.querySelectorAll('.chip:not(.all)').forEach(c=>{
-    c.classList.toggle('active', activeKapanewon.has(c.dataset.k));
+    c.classList.toggle('active', activeKecamatan.has(c.dataset.k));
   });
-  allChip.classList.toggle('active', activeKapanewon.size===0);
+  allChip.classList.toggle('active', activeKecamatan.size===0);
 
   const listEl = document.getElementById('list');
   listEl.innerHTML = '';
@@ -182,7 +182,7 @@ function render(){
 
   document.getElementById('resCount').textContent = count;
   if(count===0){
-    listEl.innerHTML = `<div class="empty">Tidak ada laundry yang cocok.<br>Coba ubah kata kunci atau filter kapanewon.</div>`;
+    listEl.innerHTML = `<div class="empty">Tidak ada laundry yang cocok.<br>Coba ubah kata kunci atau filter kecamatan.</div>`;
   }
 }
 
