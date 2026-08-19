@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Direktori Laundry Self-Service — Kabupaten Sleman</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <div class="dial"></div>
+    <div>
+      <p class="eyebrow">Peta Titik · Kabupaten Sleman</p>
+      <h1>Direktori Laundry Self-Service</h1>
+      <p class="sub">Kumpulan lokasi laundry koin &amp; self-service dari data Google Maps — cari, saring per kapanewon, lalu buka rute langsung.</p>
+    </div>
+  </div>
+  <div class="stats">
+    <div class="stat"><div class="n" id="statTotal">–</div><div class="l">Titik</div></div>
+    <div class="stat"><div class="n" id="statKapanewon">–</div><div class="l">Kapanewon</div></div>
+    <div class="stat"><div class="n" id="statRating">–</div><div class="l">Rating rata²</div></div>
+  </div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="controls">
+      <div class="search-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input id="search" type="text" placeholder="Cari nama atau alamat…" autocomplete="off">
+      </div>
+      <div class="chips" id="chips"></div>
+    </div>
+    <div class="result-count"><b id="resCount">59</b> dari 59 lokasi ditampilkan</div>
+    <div id="list"></div>
+  </aside>
+  <div id="map"></div>
+</div>
+
+<footer>Data dihimpun dari Google Maps, Agustus 2026 · Jam operasional &amp; harga dapat berubah, disarankan konfirmasi via telepon sebelum datang.</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
