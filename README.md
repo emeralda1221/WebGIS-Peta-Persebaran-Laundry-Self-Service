@@ -1,7 +1,5 @@
 # Laundry Self-Service — Kabupaten Sleman
 
-WebGIS Laundry Self-Service Kabupaten Sleman dengan istilah **Kecamatan** pada tampilan dan filter.
-
 ## File
 - `index.html` — halaman utama WebGIS.
 - `script.js` — JavaScript dan data 59 lokasi.
