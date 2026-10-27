@@ -68,9 +68,11 @@ const markers = [];
 
 /* ---------- MAP INIT ---------- */
 const map = L.map('map', { zoomControl:true }).setView([-7.735, 110.375], 11);
-L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-  attribution:'&copy; OpenStreetMap &copy; CARTO',
-  subdomains:'abcd', maxZoom:19
+
+// Basemap: OpenStreetMap (gratis, tanpa API key)
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+  maxZoom:19
 }).addTo(map);
 
 const pinSVG = `<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><circle cx="12" cy="12" r="7"/><path d="M12 8.5a3.5 3.5 0 0 0-3.5 3.5"/></svg>`;
